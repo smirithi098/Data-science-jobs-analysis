@@ -51,3 +51,17 @@ ds_data <- ds_data %>%
                         word(size , 1  , -2)))
 
 ds_data$size <- str_trim(ds_data$size)
+
+# remove the numbers from the `company name` column
+
+ds_data$company_name <- gsub("(\n\\d+\\.?\\d*)", "", ds_data$company_name)
+
+# find the unique job titles and frequency of their occurrence
+
+job_titles <- ds_data %>% 
+  count(job_title, sort = TRUE)
+
+
+
+# Analysis questions
+
